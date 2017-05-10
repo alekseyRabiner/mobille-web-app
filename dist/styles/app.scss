@@ -1,0 +1,12 @@
+@import "~normalize.css/normalize.css";
+@import "./assets/css/fontello.css";
+@import "topbar.scss";
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic');
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.container-main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
