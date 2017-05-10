@@ -1,18 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import Main from 'Main';
-/*import configureStore from './store/configureStore';
+import configureStore from './store';
 import rootSaga from './sagas/rootSaga';
+import './styles/app.scss';
 
 const store = configureStore();
 store.runSaga(rootSaga);
 store.subscribe(() => {
   console.log('App state', store.getState());
 });
-*/
-import './styles/app.scss';
 
 ReactDOM.render(
-  <Main />,
+  <Provider store={store}>
+    <Main />
+  </Provider>,
   document.getElementById('app')
 );
