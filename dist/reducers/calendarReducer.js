@@ -15,8 +15,8 @@ export const dataSchedule = (state = {}, action) => {
 const initialCurrentData = `${moment().format('DD')}-${moment().locale('ru').format('MMM')}`;
 export const currentDate = (state = initialCurrentData, action) => {
   switch (action.type) {
-    case 'SET_CURRENT_DATE':
-      return action.currentDate;
+    case 'SET_DATE':
+      return action.date;
     default:
       return state;
   }
