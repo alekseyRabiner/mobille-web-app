@@ -1,0 +1,31 @@
+.calendar {
+  background-color: $top-bar-bg;
+  color: $yellow-calendar;
+  overflow: auto;
+  white-space: nowrap;
+}
+.calendar-list {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.calendar-list-item {
+  text-align: center;
+  padding: 5px 10px;
+  color: white;
+  margin: 5px 10px;
+}
+.calendar-list-item>div:first-child, .calendar-list-item>div:last-child{
+  color: $light-dark;
+}
+.calendar-list-item-active {
+   text-align: center;
+   border: 5px solid $yellow-calendar;
+   color: $yellow-calendar;
+   padding: 5px 10px;
+}
+.date-day {
+  font-size: 26px;
+}

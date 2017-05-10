@@ -1,12 +1,28 @@
+@import "variables.scss";
 @import "~normalize.css/normalize.css";
 @import "./assets/css/fontello.css";
 @import "topbar.scss";
+@import "calendar.scss";
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic');
+* {
+  margin: 0
+}
+
+html,
+body {
+  height: 99%;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
 }
+
 .container-main {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+}
+
+.container-inner {
 }
