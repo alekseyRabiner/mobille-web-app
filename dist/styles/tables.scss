@@ -1,11 +1,13 @@
 .table-cont {
-  position: absolute;
-  left: 85px;
-  top: 0px;
-  color: black;
-  border: 1px solid yellow;
+  position: fixed;
+  top: 147px;
+  left: 73px;
+  color: $yellow-calendar;
   white-space: nowrap;
+  background-color: $top-bar-bg;
+  z-index: 50;
 }
+
 .table-item {
   display: inline-block;
   font-size: 20px;

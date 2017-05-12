@@ -2,25 +2,39 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import TimeColumn from 'TimeColumn';
-import Schedule from 'Schedule';
 import Tables from 'Tables';
+import Schedule from 'Schedule';
 import { loadSchedule } from '../actions';
 import { getTables } from '../reducers/rootReducer';
 import arrayOfTime from '../../config/ArrayOfTime.json';
 
-const handleScroll = (event) => {
-  const timeColumn = document.querySelector('.timecolumn');
-  /*  const topbarHeight = getComputedStyle(document.querySelector('.top-bar')).height;
-    const calendarHeight = getComputedStyle(document.querySelector('.calendar')).height;
-    const offsetTop = parseInt(topbarHeight, 10) + parseInt(calendarHeight, 10);*/
-  const x = event.currentTarget.scrollLeft;
-  timeColumn.style.left = x + 'px';
+const offsetYTimeColumn = (y, offsetY) => {
+  const timeColumn = document.querySelector('.timecolumn').style;
+  if (y > 0) {
+     timeColumn.top = (offsetY - y) + 'px';
+  } else {
+     timeColumn.top = offsetY + 'px';
+  }
 };
 
-const fixHeightBody = () => {
-  const timecolumnHeight = getComputedStyle(document.querySelector('.timecolumn')).height;
-  const body = document.querySelector('#body-container');
-  body.style.height = timecolumnHeight;
+const offsetXTables = (x, offsetX) => {
+  const tables = document.querySelector('.table-cont').style;
+  if (x > 0) {
+    tables.left = (offsetX - x) + 'px';
+  } else {
+    tables.left = offsetX + 'px';
+  }
+};
+
+const handleScroll = () => {
+  const x = document.querySelector('#body-container').scrollLeft;
+  const y = document.querySelector('#body-container').scrollTop;
+  const topBarH = parseInt(getComputedStyle(document.querySelector('.top-bar')).height, 10);
+  const calendarH = parseInt(getComputedStyle(document.querySelector('.calendar')).height, 10);
+  const offsetX = parseInt(getComputedStyle(document.querySelector('.timecolumn')).width, 10);
+  const offsetY = topBarH + calendarH;
+  offsetXTables(x, offsetX);
+  offsetYTimeColumn(y, offsetY);
 };
 
 class Body extends React.Component {
@@ -28,7 +42,7 @@ class Body extends React.Component {
     this.props.loadSchedule();
   }
   componentDidMount() {
-    fixHeightBody();
+    document.querySelector('#body-container').addEventListener('scroll', () => { handleScroll(); });
   }
   shouldComponentUpdate(nextProps) {
     if (this.props.currentDate !== nextProps.currentDate ||
@@ -39,14 +53,17 @@ class Body extends React.Component {
     }
     return false;
   }
-
+  componentWillUnmount() {
+    document.querySelector('#body-container').removeEventListener('scroll', () => { handleScroll(); });
+  }
   render() {
     return (
-      <div id="body-container" onScroll={event => handleScroll(event)}>
+      <div id="body-container">
         <TimeColumn arrayOfTime={arrayOfTime} />
         <Tables tables={this.props.tables} />
-        {/*<Schedule />*/}
+        <Schedule />
       </div>
+
     );
   }
 }

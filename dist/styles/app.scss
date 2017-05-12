@@ -7,12 +7,13 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic');
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 html,
 body {
-  height: 99%;
+  height:100vh;
 }
 
 body {
@@ -23,9 +24,13 @@ ul {
   margin: 0;
   padding: 0;
 }
-.container-main {
+#app {
+  height: 100%;
   width: 100%;
+}
+.container-main {
   display: flex;
+  height: 100%;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
 }

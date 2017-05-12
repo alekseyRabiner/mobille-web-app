@@ -1,9 +1,11 @@
 .top-bar{
   display: flex;
   justify-content: space-between;
+  min-height: 62px;
   width: 100%;
   background-color: $top-bar-bg;
   color: #FFFFFF;
+  z-index: 1000;
 }
 .top-bar-title {
   font-size: 30px;

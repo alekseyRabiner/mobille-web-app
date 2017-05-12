@@ -1,0 +1,26 @@
+.timecolumn {
+  position: fixed;
+  top: 147px;
+  left: 0;
+  color: $light-dark;
+  text-align: center;
+  background-color: $top-bar-bg;
+  padding: 80px 10px 40px 10px;
+  border: 1px solid white;
+  z-index: 500;
+}
+.timecolumn-list-item div {
+  display: inline;
+}
+
+.timecolumn-list-item:not(:first-child) {
+  margin-top: 50px;
+}
+.timecolumn-hour {
+  font-size: 22px;
+  margin-right: 10px;
+}
+.timecolumn-minute {
+  font-size: 15px;
+  vertical-align: top;
+}
