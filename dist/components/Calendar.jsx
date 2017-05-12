@@ -1,22 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import moment from 'moment';
 import { getDates } from '../reducers/rootReducer';
 import { setDate } from '../actions';
+
+const formatDate = (date) => {
+    const momentObj = moment(date, 'DD-MM-YYYY').locale('ru');
+    return [momentObj.format('MMM'), momentObj.date(), momentObj.format('ddd')];
+  };
 
 class Calendar extends React.Component {
   renderCalendar() {
     return this.props.dates.map((date) => {
-      const key = `${date[1]}-${date[0]}`;
+      const formatedDate = formatDate(date);
       return (
         <li
-          key={key}
-          className={key === this.props.currentDate ? 'calendar-list-item-active' : 'calendar-list-item'}
-          onClick={() => this.props.setDate(key)}
+          key={date}
+          className={date === this.props.currentDate ? 'calendar-list-item-active' : 'calendar-list-item'}
+          onClick={() => this.props.setDate(date)}
           >
-          <div className="date-month">{date[0]}</div>
-          <div className="date-day">{date[1]}</div>
-          <div className="date-week">{date[2]}</div>
+          <div className="date-month">{formatedDate[0]}</div>
+          <div className="date-day">{formatedDate[1]}</div>
+          <div className="date-week">{formatedDate[2]}</div>
         </li>
       );
     });
