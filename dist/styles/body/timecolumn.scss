@@ -1,0 +1,31 @@
+.timecolumn {
+  position: fixed;
+  top: 147px;
+  left: 0;
+  width: 75px;
+  color: $light-dark;
+  text-align: center;
+  background-color: $dark-schedule;
+  padding: 68px 0px 30px 0px;
+  z-index: 500;
+}
+.timecolumn-list-item div {
+  display: inline;
+}
+.timecolumn-list-item {
+  font-size: 1.4rem;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timecolumn-list-item:not(:first-child) {
+  margin-top: 60px;
+}
+.timecolumn-hour {
+  margin-right: 8px;
+}
+.timecolumn-minute {
+  font-size: 1rem;
+  align-self: flex-start;
+}

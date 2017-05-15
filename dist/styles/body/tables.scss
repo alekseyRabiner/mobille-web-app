@@ -1,0 +1,19 @@
+.table-cont {
+  position: fixed;
+  top: 147px;
+  left: 0px;
+  padding-left: 84px;
+  color: $yellow-calendar;
+  white-space: nowrap;
+  background-color: $dark-schedule;
+  z-index: 600;
+}
+
+.table-item {
+  display: inline-block;
+  text-align: center;
+  width: 50px;
+  font-size: 20px;
+  padding: 30px 5px 15px 5px;
+  margin-right: 5px;
+}

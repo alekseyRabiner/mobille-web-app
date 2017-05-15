@@ -1,0 +1,29 @@
+@import "timecolumn.scss";
+@import "tables.scss";
+@import "schedule.scss";
+#body-container {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: $dark-schedule;
+}
+.body-hidescroll-container {
+    position: absolute;
+    top: 0px;
+    bottom: -17px;
+    left: 0;
+    right: -17px;
+    overflow: scroll;
+}
+.hider-block {
+  position: fixed;
+  top: 147px;
+  left: 0px;
+  width: 75px;
+  height: 65px;
+  z-index: 10000;
+  background-color: $dark-schedule;
+}
