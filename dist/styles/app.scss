@@ -3,7 +3,8 @@
 @import "./assets/css/fontello.css";
 @import "topbar.scss";
 @import "calendar.scss";
-@import "body.scss";
+@import "./body/body.scss";
+@import "overlay.scss";
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&subset=cyrillic');
 * {
   margin: 0;
@@ -26,11 +27,10 @@ ul {
 }
 #app {
   height: 100%;
-  width: 100%;
 }
 .container-main {
   display: flex;
   height: 100%;
   flex-direction: column;
-  // justify-content: center;
+  justify-content: center;
 }

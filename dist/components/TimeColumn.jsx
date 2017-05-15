@@ -2,7 +2,7 @@ import React from 'react';
 
 const renderTimeColumn = (dataOfTime) => {
   return dataOfTime.map((time) => {
-    const key = `${time[0]}-${time[1]}`;
+    const key = `${time[0]}:${time[1]}`;
     return (
       <li key={key} className="timecolumn-list-item">
         <div className="timecolumn-hour">{time[0]}</div>

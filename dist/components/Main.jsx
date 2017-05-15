@@ -2,6 +2,7 @@ import React from 'react';
 import TopBar from 'TopBar';
 import Calendar from 'Calendar';
 import Body from 'Body';
+import Overlay from 'Overlay';
 
 
 const Main = () => (
@@ -9,6 +10,7 @@ const Main = () => (
     <TopBar />
     <Calendar />
     <Body />
+    <Overlay />
   </div>
 );
 

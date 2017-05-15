@@ -1,16 +1,18 @@
 import { combineReducers } from 'redux';
-import moment from 'moment';
 import calendarReducer from './calendarReducer';
+import scheduleReducer from './scheduleReducer';
 
 export default combineReducers({
-  calendar: calendarReducer
+  calendar: calendarReducer,
+  schedule: scheduleReducer
 });
 
 export const getDates = (state) => {
-  const dates = state.calendar.dataSchedule;
-  return Object.keys(dates).map((data) => {
-    const momentObj = moment(data, 'DD-MM-YYYY').locale('ru');
-    return [momentObj.format('MMM'), momentObj.date(), momentObj.format('ddd')];
-  });
+  return Object.keys(state.schedule.dataSchedule);
 };
 
+export const getTables = (state) => {
+  const currentDay = state.calendar.currentDate;
+  const objTables = state.schedule.dataSchedule[currentDay];
+  return objTables === undefined || null ? [] : Object.keys(objTables);
+};
